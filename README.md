@@ -8,13 +8,10 @@ py -m venv venv
 ##Rodar migrations
 python manage.py migrate
 
-##Super user database
+##Super user
 python manage.py createsuperuser
 user: admin
 password: 123456
 
 ##Rodar servidor
 python manage.py runserver
-
-##tutorial
-https://youtu.be/Q2tEqNfgIXM
