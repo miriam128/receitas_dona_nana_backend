@@ -19,11 +19,22 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
+    TokenVerifyView,
 )
+from api_rest.views.recipes_views import create_recipe
+from api_rest.views.users_views import register_user, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+
+    # Recipe
+    path('recipe/create/', create_recipe, name='create_recipe'),
+
+    # User
+    path('register/', register_user, name='register_user'),
+    path('login/', login, name='login'),
 ]

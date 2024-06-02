@@ -1,17 +1,20 @@
-#Ambiente de desenvolvimento
+# Ambiente de desenvolvimento
 
-##Criar ambiente virtual
+## Criar ambiente virtual
 py -m venv venv
-##Iniciar ambiente virtual:
+## Iniciar ambiente virtual:
 ./venv/Scripts/activate
 
-##Rodar migrations
+## atualizar migrations
+python manage.py makemigrations
+
+## Rodar migrations
 python manage.py migrate
 
-##Super user
+## Super user
 python manage.py createsuperuser
 user: admin
 password: 123456
 
-##Rodar servidor
+## Rodar servidor
 python manage.py runserver
