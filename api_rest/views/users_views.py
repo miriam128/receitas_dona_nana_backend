@@ -17,9 +17,11 @@ def login(request):
         token_pair = serializer.validated_data
         access_token = str(token_pair['access'])
         refresh_token = str(token_pair['refresh'])
+        username = serializer.user.username
         return Response({
-            'access_token': 'Bearer ' + access_token,
+            'access_token': access_token,
             'refresh_token': refresh_token,
+            'username': username
         })
     return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
 

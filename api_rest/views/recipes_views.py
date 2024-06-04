@@ -25,7 +25,7 @@ def create_recipe(request):
   recipe_data = {
     'title': recipe.title,
     'description': recipe.description,
-    'created_by': recipe.created_by.username,  # ou qualquer outro campo relevante do usuário
+    'created_by': recipe.created_by.username,
     'ingredients': recipe.ingredients,
     'preparation_method': recipe.preparation_method,
     'created_at': recipe.created_at,
