@@ -1,2 +1,18 @@
-venv/
+# Ignorar arquivos .pyc
+*.pyc
+__pycache__/
+
+# Ignorar banco de dados SQLite
 db.sqlite3
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de ambientes virtuais
+venv/
+
+api_rest/views/__pycache__/
+api_root/__pycache__/
+
+# Ignorar arquivos de configurações de IDEs
+.vscode/
