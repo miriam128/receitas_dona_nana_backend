@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
-from api_rest.views.recipes_views import create_recipe
+from api_rest.views.recipes_views import create_recipe, list_all_recipes, get_recipe_by_id, delete_recipe
 from api_rest.views.users_views import register_user, login
 
 urlpatterns = [
@@ -33,6 +33,9 @@ urlpatterns = [
 
     # Recipe
     path('recipe/create/', create_recipe, name='create_recipe'),
+    path('recipe/<int:recipe_id>/show/', get_recipe_by_id, name='get_recipe_by_id'),
+    path('recipe/index/', list_all_recipes, name='list_all_recipes'),
+    path('recipe/<int:recipe_id>/delete/', delete_recipe, name='delete_recipe'),
 
     # User
     path('register/', register_user, name='register_user'),
