@@ -18,3 +18,6 @@ password: 123456
 
 ## Rodar servidor
 python manage.py runserver
+
+## Atualizar requirements.txt
+pip freeze > requirements. txt
