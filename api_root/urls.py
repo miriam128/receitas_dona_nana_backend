@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import (
@@ -21,7 +23,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
-from api_rest.views.recipes_views import create_recipe, list_all_recipes, get_recipe_by_id, delete_recipe
+from api_rest.views.recipes_views import create_recipe, list_all_recipes, get_recipe_by_id, delete_recipe, update_recipe
 from api_rest.views.users_views import register_user, login
 
 urlpatterns = [
@@ -35,9 +37,10 @@ urlpatterns = [
     path('recipe/create/', create_recipe, name='create_recipe'),
     path('recipe/<int:recipe_id>/show/', get_recipe_by_id, name='get_recipe_by_id'),
     path('recipe/index/', list_all_recipes, name='list_all_recipes'),
+    path('recipe/<int:recipe_id>/edit/', update_recipe, name='update_recipe'),
     path('recipe/<int:recipe_id>/delete/', delete_recipe, name='delete_recipe'),
 
     # User
     path('register/', register_user, name='register_user'),
     path('login/', login, name='login'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

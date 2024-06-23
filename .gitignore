@@ -16,3 +16,5 @@ api_root/__pycache__/
 
 # Ignorar arquivos de configurações de IDEs
 .vscode/
+api_rest/__pycache__/]
+media/images/

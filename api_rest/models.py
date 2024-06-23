@@ -16,6 +16,7 @@ class Recipe(models.Model):
 
 class Image(models.Model):
     name = models.CharField(max_length=255)
+    image = models.ImageField(default=None, blank=True, null=True, upload_to='images/')
     url = models.URLField()
 
     def __str__(self):
